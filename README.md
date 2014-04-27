@@ -1,5 +1,7 @@
 # Characteristic - Feature flag configuration for Node.js
 
+[![Build Status](https://drone.io/github.com/shawnzhu/characteristic/status.png)](https://drone.io/github.com/shawnzhu/characteristic/latest)
+
 Feature flag implementation in Node.
 
 Inspired by [Etsy Feature API](https://github.com/etsy/feature)
