@@ -1,0 +1,21 @@
+{
+  "name": "characteristic",
+  "version": "0.0.1",
+  "description": "feature flag util",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit test"
+  },
+  "keywords": [
+    "config",
+    "feature flag"
+  ],
+  "author": "Ke Zhu <davidzhu.4.2@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "js-yaml": "~3.0.2"
+  },
+  "devDependencies": {
+    "nodeunit": "0.8.6"
+  }
+}

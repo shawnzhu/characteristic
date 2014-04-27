@@ -1,0 +1,7 @@
+---
+features:
+  zero-downtime: on
+  flying-phone: off
+  logo-color: slategray
+  background-color: [red, blue, yellow]
+  # add feature for specific user(s)

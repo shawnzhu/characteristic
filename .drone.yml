@@ -1,0 +1,7 @@
+image: bradrydzewski/node:0.10
+name: characteristic
+script:
+  - npm install
+  - npm test
+env:
+  - NODE_ENV=testing
