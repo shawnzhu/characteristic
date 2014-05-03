@@ -16,6 +16,8 @@
     "js-yaml": "~3.0.2"
   },
   "devDependencies": {
-    "nodeunit": "0.8.6"
+    "nodeunit": "0.8.6",
+    "supertest": "*",
+    "connect": "*"
   }
 }

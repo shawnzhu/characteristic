@@ -8,16 +8,44 @@ module.exports = function (configFilePath) {
             process.cwd(),
             "config",
             (process.NODE_ENV || "development") + ".yml"),
-        doc = yaml.safeLoad(
-            fs.readFileSync(configFilePath, "utf8")
-        );
-
+        doc = yaml.safeLoad(fs.readFileSync(configFilePath, "utf8")),
         features = doc["features"];
 
-    api.isEnabled = function (feature) {
-        var status = features[feature];
-        return status !== undefined && status !== "off";
+    function contains (featureUsers, user) {
+        var userName = (user.name || user);
+
+        if (userName === undefined) {
+            return false;
+        } else {
+            switch (typeof featureUsers) {
+                case "string":
+                    return featureUsers === userName;
+                case "object":
+                    return featureUsers.indexOf(userName) > -1;
+                default:
+                    return false;
+            }
+        }
     }
+
+    api.isEnabled = function (feature) {
+        var status = features[feature],
+            enabled = false;
+
+        if (!status) {
+            return false;
+        }
+
+        if (status.users) {
+            enabled = contains(status.users, this.user);
+        } else if (status.groups) {
+            enabled = contains(status.groups, this.group);
+        } else {
+            enabled = (status !== undefined) && (status !== "off");
+        }
+
+        return enabled;
+    };
 
     api.variant = function (feature) {
         var data = features[feature];
@@ -27,7 +55,7 @@ module.exports = function (configFilePath) {
         } else {
             return undefined;
         }
-    }
+    };
 
     return api;
 }

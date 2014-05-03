@@ -4,4 +4,7 @@ features:
   flying-phone: off
   logo-color: slategray
   background-color: [red, blue, yellow]
-  # add feature for specific user(s)
+  super-power:
+    users: [hulk, thor, superman]
+  hero:
+    groups: [shield, avengers]
