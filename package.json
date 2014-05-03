@@ -8,9 +8,11 @@
   },
   "keywords": [
     "config",
-    "feature flag"
+    "flag"
   ],
   "author": "Ke Zhu <davidzhu.4.2@gmail.com>",
+  "repository": "git@github.com:shawnzhu/characteristic.git",
+  "bugs": "https://github.com/shawnzhu/characteristic/issues",
   "license": "MIT",
   "dependencies": {
     "js-yaml": "~3.0.2"
