@@ -4,12 +4,12 @@ var yaml = require("js-yaml"),
 
 module.exports = function (configFilePath) {
     var api = Object.create(null),
-        configFilePath = configFilePath || path.join(
+        currentConfigFilePath = configFilePath,
+        defaultConfigFilePath = path.join(
             process.cwd(),
             "config",
-            (process.NODE_ENV || "development") + ".yml"),
-        doc = yaml.safeLoad(fs.readFileSync(configFilePath, "utf8")),
-        features = doc["features"];
+            (process.NODE_ENV || "development") + ".yml");
+        ;
 
     function contains (featureUsers, user) {
         var userName = (user.name || user);
@@ -27,6 +27,27 @@ module.exports = function (configFilePath) {
             }
         }
     }
+
+    api.reload = function (newConfigPath, callback) {
+        var doc, configPath;
+
+        switch (typeof newConfigPath) {
+            case "string":
+                configPath = newConfigPath;
+                break;
+            case "function":
+                callback = newConfigPath;
+            case "undefined":
+            default:
+                configPath = currentConfigFilePath || defaultConfigFilePath;
+        }
+
+        doc = yaml.safeLoad(fs.readFileSync(configPath, "utf8"));
+        currentConfigFilePath = configPath;
+        features = doc["features"];
+
+        if (callback) { callback(); }
+    };
 
     api.isEnabled = function (feature) {
         var status = features[feature],
@@ -56,6 +77,8 @@ module.exports = function (configFilePath) {
             return undefined;
         }
     };
+
+    api.reload(configFilePath);
 
     return api;
 }

@@ -24,7 +24,7 @@ function setUserOrGroup(req, res, next) {
     if (req.query.group) {
         req.group = {name: req.query.group};
     }
-    
+
     next();
 }
 
@@ -84,5 +84,20 @@ module.exports = {
             .get("/hero?group=empire")
             .expect(404)
             .end(test.done);
+    },
+
+    reloadableConfig: function (test) {
+        Feature.reload(function () {
+            test.equal(Feature.isEnabled("flying-phone"), false);
+            test.done();
+        });
+    },
+
+    reloadWithNewPath: function (test) {
+        var newConfigPath = path.join(__dirname, "data", "feature4reload.yml");
+        Feature.reload(newConfigPath, function() {
+            test.ok(Feature.isEnabled("flying-phone"));
+            test.done();
+        });
     }
 }

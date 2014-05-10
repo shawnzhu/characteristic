@@ -1,0 +1,10 @@
+---
+features:
+  zero-downtime: on
+  flying-phone: on
+  logo-color: spacegray
+  background-color: [red, blue, yellow]
+  super-power:
+    users: [hulk, thor, superman]
+  hero:
+    groups: [shield, avengers]

@@ -36,6 +36,13 @@ It loads default configuration file from `<project-root>/config/<node-env>.yml`:
       hero:
         groups: [shield, avengers]
 
-Using customized configuration file path:
+Uses customized configuration file path:
 
     var Feature = require("characteristic")("./foo/custom-config.yml");
+
+Reload configuration:
+
+    Feature.reload();
+
+    // reload with new config path
+    Feature.reload("./bar/custom-config.yml");
