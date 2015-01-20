@@ -1,6 +1,6 @@
 {
   "name": "characteristic",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "feature flag util",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,6 @@
   "devDependencies": {
     "nodeunit": "0.8.6",
     "supertest": "*",
-    "connect": "*"
+    "connect": "^2.28"
   }
 }
