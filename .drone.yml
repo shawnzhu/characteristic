@@ -3,5 +3,6 @@ name: characteristic
 script:
   - npm install
   - npm test
+  - cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
 env:
   - NODE_ENV=testing
