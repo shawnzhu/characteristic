@@ -1,6 +1,7 @@
 # Characteristic - Feature flag configuration for Node.js
 
 [![Build Status](https://drone.io/github.com/shawnzhu/characteristic/status.png)](https://drone.io/github.com/shawnzhu/characteristic/latest)
+[![Coverage Status](https://coveralls.io/repos/shawnzhu/characteristic/badge.svg?branch=coverage&service=github)](https://coveralls.io/github/shawnzhu/characteristic?branch=coverage)
 
 Feature flag implementation in Node.
 

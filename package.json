@@ -4,7 +4,7 @@
   "description": "feature flag util",
   "main": "index.js",
   "scripts": {
-    "test": "nodeunit test"
+    "test": "istanbul cover nodeunit test"
   },
   "keywords": [
     "config",
@@ -19,6 +19,8 @@
   },
   "devDependencies": {
     "nodeunit": "0.8.6",
+    "istanbul": "0.4.1",
+    "coveralls": "2.11.4",
     "supertest": "*",
     "connect": "^2.28"
   }
